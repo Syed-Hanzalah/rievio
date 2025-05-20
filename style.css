@@ -1,0 +1,270 @@
+
+    :root {
+      --brand-color-start: #A6C5CB;
+      --brand-color-end:   #C5E0DC;
+      --brand-color:       #A6C5CB;
+      --border-width:      2px;
+      --radius-lg:         16px;
+      --radius-md:         8px;
+      --shadow:            0 6px 16px rgba(0,0,0,0.1);
+      --spacing:           12px;
+      --star-size:         2rem;
+      --star-color:        gold;
+      --star-empty-color:  #ccc;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding:
+        env(safe-area-inset-top)
+        env(safe-area-inset-right)
+        env(safe-area-inset-bottom)
+        env(safe-area-inset-left);
+      font-family:
+        -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans",
+        "Helvetica Neue", sans-serif;
+      background-color: #f0f2f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .container {
+      width: 100%;
+      max-width: 360px;
+      padding: var(--spacing);
+    }
+    .card {
+      padding: var(--border-width);
+      background: linear-gradient(45deg, var(--brand-color-start), var(--brand-color-end));
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+    }
+    .card-inner {
+      background-color: #fff;
+      border-radius: calc(var(--radius-lg) - var(--border-width));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: var(--spacing);
+      height: auto;
+    }
+    .logo {
+      max-width: 60%;
+      margin-bottom: var(--spacing);
+    }
+    .heading {
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-align: center;
+      margin: var(--spacing) 0;
+      color: #333;
+    }
+    .message {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #333;
+      text-align: center;
+      white-space: pre-line;
+      margin: 0 0 var(--spacing);
+    }
+    .button-row {
+      display: flex;
+      width: 100%;
+      gap: var(--spacing);
+      margin-top: auto;
+      margin-bottom: var(--spacing);
+    }
+    .btn {
+      flex: 1;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-align: center;
+      padding: var(--spacing) 0;
+      border: none;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+    }
+    .btn-yes {
+      background: linear-gradient(45deg, var(--brand-color-start), var(--brand-color-end));
+      color: #fff;
+    }
+    .btn-no {
+      background-color: #fff;
+      color: var(--brand-color-start);
+      border: 2px solid var(--brand-color-start);
+    }
+    .btn-single {
+      /* override flex and ensure full-width, remove underline */
+      flex: none;
+      width: 100%;
+      display: block;
+      text-decoration: none;
+      background: linear-gradient(45deg, var(--brand-color-start), var(--brand-color-end));
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-align: center;
+      padding: var(--spacing) 0;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      margin-top: var(--spacing);
+    }
+    .btn-submit {
+      /* override flex and ensure full-width */
+      flex: none;
+      width: 100%;
+      background: linear-gradient(45deg, var(--brand-color-start), var(--brand-color-end));
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-align: center;
+      padding: var(--spacing) 0;
+      border: none;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      margin-top: var(--spacing);
+      margin-bottom: var(--spacing);
+    }
+    .back-btn {
+      align-self: flex-start;
+      background: none;
+      border: none;
+      color: #666;
+      font-size: 0.9rem;
+      cursor: pointer;
+      margin-bottom: var(--spacing);
+    }
+    .stars {
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+      margin-bottom: var(--spacing);
+    }
+    .star {
+      font-size: var(--star-size);
+      color: var(--star-empty-color);
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .star.filled {
+      color: var(--star-color);
+    }
+    .feedback-field {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      margin-bottom: var(--spacing);
+    }
+    .feedback-field label {
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #333;
+    }
+    .feedback-field textarea {
+      width: 100%;
+      min-height: 120px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: var(--radius-md);
+      font-size: 1rem;
+      resize: vertical;
+    }
+    .check-container {
+      width: 4rem;
+      height: 4rem;
+      margin-bottom: var(--spacing);
+    }
+    .check-container svg {
+      width: 100%;
+      height: 100%;
+    }
+    .check-circle {
+      fill: none;
+      stroke: var(--brand-color);
+      stroke-width: 4;
+      stroke-dasharray: 120;
+      stroke-dashoffset: 120;
+      animation: draw-circle 0.6s ease-out forwards;
+    }
+    .check-mark {
+      fill: none;
+      stroke: var(--brand-color);
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 50;
+      stroke-dashoffset: 50;
+      animation: draw-mark 0.4s 0.6s ease-out forwards;
+    }
+    /* google */
+    :root {
+  --google-blue:   #4285F4;
+  --google-green:  #34A853;
+  --google-yellow: #FBBC05;
+  --google-red:    #EA4335;
+
+  --brand-color-start: var(--google-blue);
+  --brand-color-end: var(--google-green);
+  --brand-color: var(--google-blue);
+
+  --border-width: 2px;
+  --radius-lg: 16px;
+  --radius-md: 8px;
+  --shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  --spacing: 12px;
+  --star-size: 2rem;
+  --star-color: var(--google-yellow);
+  --star-empty-color: #ccc;
+}
+
+body {
+  background-color: #f5f5f5;
+}
+
+.card-google {
+  background: linear-gradient(45deg, var(--brand-color-start), var(--brand-color-end));
+}
+.card-google {
+      padding: var(--border-width);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+    }
+
+.google-yes {
+  background-color: var(--google-green);
+  color: #fff;
+}
+
+.google-no {
+  background-color: #fff;
+  color: var(--google-red);
+  border: 2px solid var(--google-red);
+}
+
+.google-single {
+  background-color: var(--google-blue);
+  color: #fff;
+}
+
+.google-submit {
+  background-color: var(--google-blue);
+  color: #fff;
+}
+
+.check-circle {
+  stroke: var(--google-blue);
+}
+
+.check-mark {
+  stroke: var(--google-blue);
+}
+
+    @keyframes draw-circle { to { stroke-dashoffset: 0; } }
+    @keyframes draw-mark   { to { stroke-dashoffset: 0; } }
+
+    .screen { display: none; }
+    .screen.active { display: flex; }
+  
