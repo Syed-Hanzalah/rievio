@@ -234,6 +234,7 @@ body {
     }
 
 .google-yes {
+     background: linear-gradient(45deg, var(--brand-color-start), var(--brand-color-end));
   background-color: var(--google-green);
   color: #fff;
 }
