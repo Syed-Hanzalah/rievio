@@ -239,7 +239,7 @@ body {
 
   transition: background-color 0.2s ease;
   box-shadow: 0 1px 3px rgba(60, 64, 67, 0.3);
-  margin-right: 10px;
+  
 }
 
 .google .btn-yes:hover {
@@ -314,7 +314,7 @@ body {
 
   transition: background-color 0.2s ease;
   box-shadow: 0 1px 3px rgba(60, 64, 67, 0.3);
-  margin-right: 10px;
+  
 }
 
 .trustpoilt .btn-yes:hover {
@@ -392,7 +392,7 @@ body {
 
   transition: background-color 0.2s ease;
   box-shadow: 0 1px 3px rgba(60, 64, 67, 0.3);
-  margin-right: 10px;
+  
 }
 
 .trip .btn-yes:hover {
