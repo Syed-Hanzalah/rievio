@@ -7,6 +7,7 @@
   --radius-md: 8px;
   --shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
   --spacing: 12px;
+  --spacing-lg: 20px;
   --star-size: 2rem;
   --star-color: gold;
   --star-empty-color: #ccc;
@@ -18,18 +19,13 @@
 
 body {
   margin: 0;
-  padding:
-    env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-  font-family:
-    -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans",
-    "Helvetica Neue", sans-serif;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   background-color: #f0f2f5;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .container {
@@ -38,7 +34,7 @@ body {
   padding: var(--spacing);
 }
 
-.rievio .card {
+.card {
   padding: var(--border-width);
   background: linear-gradient(45deg, var(--brand-color-start), var(--brand-color-end));
   border-radius: var(--radius-lg);
@@ -46,13 +42,12 @@ body {
 }
 
 .card-inner {
-  background-color: #fff;
-  border-radius: calc(var(--radius-lg) - var(--border-width));
+  background: #fff;
+  border-radius: var(--radius-lg);
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: var(--spacing);
-  height: auto;
 }
 
 .logo {
@@ -70,85 +65,11 @@ body {
 
 .message {
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.4;
   color: #333;
   text-align: center;
   white-space: pre-line;
   margin: 0 0 var(--spacing);
-}
-
-.button-row {
-  display: flex;
-  width: 100%;
-  gap: var(--spacing);
-  margin-top: auto;
-  margin-bottom: var(--spacing);
-}
-
-.btn {
-  flex: 1;
-  font-size: 1.1rem;
-  font-weight: 600;
-  text-align: center;
-  padding: var(--spacing) 0;
-  border: none;
-  border-radius: var(--radius-md);
-  cursor: pointer;
-}
-
-.rievio .btn-yes {
-  background: linear-gradient(45deg, var(--brand-color-start), var(--brand-color-end));
-  color: #fff;
-}
-
-.rievio .btn-no {
-  background-color: #fff;
-  color: var(--brand-color-start);
-  border: 2px solid var(--brand-color-start);
-}
-
-.rievio .btn-single {
-  /* override flex and ensure full-width, remove underline */
-  flex: none;
-  width: 100%;
-  display: block;
-  text-decoration: none;
-  background: linear-gradient(45deg, var(--brand-color-start), var(--brand-color-end));
-  color: #fff;
-  font-size: 1.1rem;
-  font-weight: 600;
-  text-align: center;
-  padding: var(--spacing) 0;
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  margin-top: var(--spacing);
-}
-
-.rievio .btn-submit {
-  /* override flex and ensure full-width */
-  flex: none;
-  width: 100%;
-  background: linear-gradient(45deg, var(--brand-color-start), var(--brand-color-end));
-  color: #fff;
-  font-size: 1.1rem;
-  font-weight: 600;
-  text-align: center;
-  padding: var(--spacing) 0;
-  border: none;
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  margin-top: var(--spacing);
-  margin-bottom: var(--spacing);
-}
-
-.back-btn {
-  align-self: flex-start;
-  background: none;
-  border: none;
-  color: #666;
-  font-size: 0.9rem;
-  cursor: pointer;
-  margin-bottom: var(--spacing);
 }
 
 .stars {
@@ -161,7 +82,6 @@ body {
 .star {
   font-size: var(--star-size);
   color: var(--star-empty-color);
-  cursor: pointer;
   transition: color 0.2s;
 }
 
@@ -169,8 +89,35 @@ body {
   color: var(--star-color);
 }
 
+.rievio .btn-primary,
+.rievio .btn-submit {
+  width: 100%;
+  background: linear-gradient(45deg, var(--brand-color-start), var(--brand-color-end));
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  padding: var(--spacing) 0;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  margin: var(--spacing) 0;
+  text-decoration: none;
+  display: block;
+}
+
+.back-btn {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-bottom: var(--spacing);
+}
+
 .feedback-field {
-  display: none;
+  display: flex;
   flex-direction: column;
   width: 100%;
   margin-bottom: var(--spacing);
@@ -223,79 +170,74 @@ body {
   animation: draw-mark 0.4s 0.6s ease-out forwards;
 }
 
+@keyframes draw-circle {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes draw-mark {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.help-text {
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: var(--spacing-lg);
+}
+
+.help-text a {
+  text-decoration: underline;
+  color: #666;
+}
+
+.screen {
+  display: none;
+}
+
+.screen.active {
+  display: flex;
+}
+
+
 /* google */
 .google .card {
   padding: var(--border-width);
   background: rgba(0, 0, 0, .05);
   border-radius: var(--radius-lg);
-   box-shadow: var(--shadow);
+  box-shadow: var(--shadow);
   /* box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.07); */
 }
 
-.google .btn-yes {
+.google .btn-primary,
+.google .btn-submit {
   background-color: #1a73e8;
   color: #fff;
   border: none;
 
   transition: background-color 0.2s ease;
   box-shadow: 0 1px 3px rgba(60, 64, 67, 0.3);
-  
-}
-
-.google .btn-yes:hover {
-  background-color: #1558b0;
-}
-
-.google .btn-no {
-  background-color: #fff;
-  color: #1a73e8;
-  border: 1px solid #dadce0;
-
-  transition: background-color 0.2s ease;
-}
-
-.google .btn-no:hover {
-  background-color: #e8f0fe;
-}
-
-.google .btn-single {
-  display: block;
   width: 100%;
-  text-align: center;
-  background-color: #1a73e8;
-  color: #fff;
-  padding: 12px;
-  margin-top: 12px;
-  border-radius: 8px;
-  text-decoration: none;
   font-size: 1.1rem;
   font-weight: 600;
-  transition: background-color 0.2s ease;
-}
-
-.google .btn-single:hover {
-  background-color: #1558b0;
-}
-
-.google .btn-submit {
-  display: block;
-  width: 100%;
   text-align: center;
-  background-color: #1a73e8;
-  color: #fff;
-  padding: 12px;
-  margin-top: 12px;
-  border: none;
-  border-radius: 8px;
+  padding: var(--spacing) 0;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  margin: var(--spacing) 0;
   text-decoration: none;
-  font-size: 1.1rem;
-  font-weight: 600;
-  transition: background-color 0.2s ease;
+  display: block;
 }
 
+.google .btn-primary:hover,
 .google .btn-submit:hover {
   background-color: #1558b0;
 }
+
+
+
 /* trustpoilt */
 
 
@@ -306,75 +248,32 @@ body {
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
   /* box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.07); */
 }
-
-.trustpoilt .btn-yes {
+.trustpoilt .btn-primary,
+.trustpoilt .btn-submit {
   background-color: #205cd4;
   color: #fff;
   border: none;
 
   transition: background-color 0.2s ease;
   box-shadow: 0 1px 3px rgba(60, 64, 67, 0.3);
-  
-}
-
-.trustpoilt .btn-yes:hover {
-  background-color: #c2d5f7;
-  color: #000;
-}
-
-.trustpoilt .btn-no {
-  background-color: #fff;
-  color: #205cd4;
-  border: 1px solid #dadce0;
-
-  transition: background-color 0.2s ease;
-}
-
-.trustpoilt .btn-no:hover {
-  background-color: #c2d5f7;
-  color: #000;
-}
-
-.trustpoilt .btn-single {
-  display: block;
   width: 100%;
-  text-align: center;
-  background-color: #205cd4;
-  color: #fff;
-  padding: 12px;
-  margin-top: 12px;
-  border-radius: 8px;
-  text-decoration: none;
   font-size: 1.1rem;
   font-weight: 600;
-  transition: background-color 0.2s ease;
-}
-
-.trustpoilt .btn-single:hover {
-  background-color: #c2d5f7;
-  color: #000;
-}
-
-.trustpoilt .btn-submit {
-  display: block;
-  width: 100%;
   text-align: center;
-  background-color: #205cd4;
-  color: #fff;
-  padding: 12px;
-  margin-top: 12px;
-  border: none;
-  border-radius: 8px;
+  padding: var(--spacing) 0;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  margin: var(--spacing) 0;
   text-decoration: none;
-  font-size: 1.1rem;
-  font-weight: 600;
-  transition: background-color 0.2s ease;
+  display: block;
 }
 
+.trustpoilt .btn-primary:hover,
 .trustpoilt .btn-submit:hover {
   background-color: #c2d5f7;
-  color: #000;
+  color: #000;;
 }
+
 /* tripadvisor */
 
 .trip .card {
@@ -384,75 +283,32 @@ body {
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
   /* box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.07); */
 }
-
-.trip .btn-yes {
+.trip .btn-primary,
+.trip .btn-submit {
   background-color: #000;
   color: #fff;
   border: none;
 
   transition: background-color 0.2s ease;
   box-shadow: 0 1px 3px rgba(60, 64, 67, 0.3);
-  
-}
-
-.trip .btn-yes:hover {
-  background-color:rgb(0 0 0 / 69%);
-  color: #fff;
-}
-
-.trip .btn-no {
-  background-color: #fff;
-  color: #000;
-  border: 1px solid #dadce0;
-
-  transition: background-color 0.2s ease;
-}
-
-.trip .btn-no:hover {
-  background-color: rgb(0 0 0 / 20%);
-  
-}
-
-.trip .btn-single {
-  display: block;
   width: 100%;
-  text-align: center;
-  background-color: #000;
-  color: #fff;
-  padding: 12px;
-  margin-top: 12px;
-  border-radius: 8px;
-  text-decoration: none;
   font-size: 1.1rem;
   font-weight: 600;
-  transition: background-color 0.2s ease;
-}
-
-.trip .btn-single:hover {
-  background-color: rgb(0 0 0 / 69%);
-  color: #fff;
-}
-
-.trip .btn-submit {
-  display: block;
-  width: 100%;
   text-align: center;
-  background-color: #000;
-  color: #fff;
-  padding: 12px;
-  margin-top: 12px;
-  border: none;
-  border-radius: 8px;
+  padding: var(--spacing) 0;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  margin: var(--spacing) 0;
   text-decoration: none;
-  font-size: 1.1rem;
-  font-weight: 600;
-  transition: background-color 0.2s ease;
+  display: block;
 }
 
+.trip .btn-primary:hover,
 .trip .btn-submit:hover {
-  background-color: rgb(0 0 0 / 69%);
+ background-color: rgb(0 0 0 / 69%);
   color: #fff;
 }
+
 
 
 @keyframes draw-circle {
