@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>jameda Bewertung</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body class="jameda">
+  <div class="container">
+    <div class="card">
+
+      <!-- Screen 1 -->
+      <div id="screen1" class="card-inner screen active">
+        <img class="logo" src="./jameda.png" alt="">
+        <div class="heading">Bitte bewerten Sie uns ⭐️</div>
+        <div class="message">
+          Vielen Dank für Ihren Besuch bei uns.<br>
+          Wir würden uns sehr freuen, wenn Sie sich kurz eine Minute Zeit nehmen würden, um uns zu bewerten.
+        </div>
+        <div class="stars">
+          <span class="star" data-value="1">★</span>
+          <span class="star" data-value="2">★</span>
+          <span class="star" data-value="3">★</span>
+          <span class="star" data-value="4">★</span>
+          <span class="star" data-value="5">★</span>
+        </div>
+        <a id="screen1-btn" class="btn-primary">Abschicken</a>
+      </div>
+
+      <!-- Screen 2 -->
+      <div id="screen2" class="card-inner screen">
+        <button class="back-btn" id="back2">← Zurück</button>
+        <img class="logo" src="./jameda.png" alt="">
+        <div class="heading">Bitte bewerten Sie uns ⭐️</div>
+        <div class="message">
+          Es tut uns leid, dass Sie nicht zufrieden waren!<br>
+          Bitte teilen Sie uns mit, womit Sie nicht zufrieden waren und was wir künftig besser machen können. Ihre Rückmeldung ist für uns sehr wichtig.<br>
+          Vielen Dank für Ihre Unterstützung.
+        </div>
+        <div class="stars" id="screen2-stars"></div>
+        <div class="feedback-field">
+          <label for="feedback">Ihr Feedback</label>
+          <textarea id="feedback" placeholder="Ihr Feedback…"></textarea>
+        </div>
+        <button class="btn-submit" id="submit-feedback">Abschicken</button>
+      </div>
+
+      <!-- Screen 3 -->
+      <div id="screen3" class="card-inner screen">
+        <img class="logo" src="./jameda.png" alt="">
+        <div class="heading">Danke für Ihr Feedback! 🙏🏻</div>
+        <div class="check-container">
+          <svg viewBox="0 0 52 52">
+            <circle class="check-circle" cx="26" cy="26" r="20"/>
+            <path class="check-mark" d="M16 27 l8 8 l12 -12"/>
+          </svg>
+        </div>
+        <div class="message">
+          Wir wissen Ihre ehrliche Meinung sehr zu schätzen und nehmen Ihre Anregungen ernst.<br>
+          Vielen Dank, dass Sie sich die Zeit genommen haben!
+        </div>
+      </div>
+
+      <!-- Screen 5: FAQ -->
+      <div id="screen5" class="card-inner screen">
+        <button class="back-btn" id="back5">← Zurück</button>
+        <img class="logo" src="./jameda.png" alt="">
+        <div class="heading">Hier finden Sie eine kurze Anleitung</div>
+        <div class="message" style="text-align:left;">
+          ✏️ Um eine Bewertung bei Google zu hinterlassen, gehen Sie wie folgt vor:<br>
+          1. 👤 <strong>Mit Google Account anmelden</strong><br>
+             Falls Sie nicht direkt zur Bewertungsseite kommen, melden Sie sich bitte mit Ihrem Google Account an.<br>
+          2. ⭐️ <strong>1-5 Sterne vergeben</strong><br>
+             Vergeben Sie ganz oben 1-5 Sterne, indem Sie diese antippen. Bei manchen Seiten können zusätzlich auch einzelne Services separat bewertet werden.<br>
+          3. 💬 <strong>Text verfassen</strong><br>
+             Schreiben Sie idealerweise auch noch einen kurzen Text mit Ihren Eindrücken.<br>
+          4. ✉️ <strong>Posten</strong><br>
+             Tippen Sie dann auf den blauen Button „Posten“.
+        </div>
+        <a href="#" id="faq-btn-top" class="btn-primary">Jetzt Bewertung abgeben</a>
+        <div class="message" style="text-align:left; margin-top:var(--spacing);">
+          ❓ Häufig gestellte Fragen:<br>
+          <strong>1. Brauche ich für die Bewertung einen Google Account?</strong><br>
+          Ja, um eine Bewertung bei Google zu hinterlassen, brauchen Sie einen Google Account.<br>
+          <strong>2. Der Button „Posten“ ist bei mir nicht blau. Warum funktioniert es nicht?</strong><br>
+          Wenn der Button bei Ihnen nicht blau wird, dann fehlt die Gesamtbewertung. Bitte vergeben Sie ganz oben 1-5 Sterne, der Button wird dann blau und Sie können die Bewertung posten.<br>
+          <strong>3. Muss ich alle Felder ausfüllen und bewerten?</strong><br>
+          Nein, Sie müssen lediglich eine Gesamtbewertung vergeben, um eine Bewertung posten zu können.
+        </div>
+        <a href="#" id="faq-btn-bottom" class="btn-primary">Jetzt Bewertung abgeben</a>
+      </div>
+
+    </div>
+
+    <!-- FAQ-Link unter Karte nur auf Screen1 -->
+    <div class="help-text" id="help-text">
+      Sie brauchen Hilfe?<br>
+      <a href="#" id="help-link">Klicken Sie hier.</a>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
